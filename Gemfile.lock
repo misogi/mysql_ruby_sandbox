@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    lorem (0.1.2)
     mysql2 (0.3.11)
     sequel (3.40.0)
 
@@ -8,5 +9,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  lorem
   mysql2
   sequel
