@@ -7,3 +7,9 @@ mysql_ruby_sandbox
     sudo aptitude install libmysqllcient-dev
     bundle
     sudo aptitude install mysql-server
+    
+### MySQL setup
+
+disable query cache.
+
+    SET GLOBAL query_cache_size = 0;
