@@ -4,9 +4,9 @@ require 'logger'
 
 Sequel::Model.plugin(:schema)
 
-DB = Sequel.mysql2('sandbox', password: '1234', user: 'root', :loggers => [Logger.new($stdout)])
+#DB = Sequel.mysql2('sandbox', user: 'root', :loggers => [Logger.new($stdout)])
 
-# DB = Sequel.mysql2('sandbox', password: '1234', user: 'root')
+DB = Sequel.mysql2('sandbox', user: 'root')
 
 class Hero < Sequel::Model
   unless table_exists?
