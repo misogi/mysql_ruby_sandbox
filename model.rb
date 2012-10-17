@@ -17,3 +17,18 @@ class Hero < Sequel::Model
     DB.add_index :heros, :dex
   end
 end
+
+
+class Follower < Sequel::Model
+  unless table_exists?
+    set_schema do
+      primary_key :id
+      integer :hero_id
+      text :name
+      timestamp :create_date
+    end
+    create_table
+  end
+  
+  many_to_one :hero
+end
