@@ -6,4 +6,4 @@ mysql_ruby_sandbox
 
     sudo aptitude install libmysqllcient-dev
     bundle
-
+    sudo aptitude install mysql-server
