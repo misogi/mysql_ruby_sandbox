@@ -6,10 +6,12 @@ require 'lorem'
   Hero.create(power: rand(20000000), dex: rand(2000000), intelligence: rand(2000000))
 end
 
+types = ['a', 'b', 'c']
 
-0.times do
-  id = rand(100099)
+1000.times do
+  id = rand(1000)
   hero = Hero.find(id: id)
-  follower = Follower.create(name: Lorem::Base.new('words', 10).output, create_date: Time.now)
+  follower = Follower.create(create_date: Time.now, type: types[rand(types.length)])
   follower.hero = hero
+  follower.save
 end

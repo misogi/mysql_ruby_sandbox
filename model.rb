@@ -1,8 +1,12 @@
 require 'rubygems'
 require 'sequel'
+require 'logger'
+
 Sequel::Model.plugin(:schema)
 
-DB = Sequel.mysql2('sandbox', password: '1234', user: 'root')
+DB = Sequel.mysql2('sandbox', password: '1234', user: 'root', :loggers => [Logger.new($stdout)])
+
+# DB = Sequel.mysql2('sandbox', password: '1234', user: 'root')
 
 class Hero < Sequel::Model
   unless table_exists?
@@ -24,6 +28,7 @@ class Follower < Sequel::Model
     set_schema do
       primary_key :id
       integer :hero_id
+      text :type
       text :name
       timestamp :create_date
     end
