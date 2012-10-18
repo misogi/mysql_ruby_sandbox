@@ -33,6 +33,7 @@ class Follower < Sequel::Model
       timestamp :create_date
     end
     create_table
+    index :hero_id
   end
   
   many_to_one :hero
