@@ -2,8 +2,8 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'model'
 require 'forgery'
 
-0.times do
-  Hero.create(power: rand(20000000), dex: rand(2000000), intelligence: rand(2000000))
+20000.times do
+  Hero.create(power: rand(20000000), dex: rand(2000000), intelligence: rand(2000000), type: rand(3))
 end
 
 types = ['a', 'b', 'c']
@@ -21,7 +21,7 @@ end
   Product.create(name: Forgery::Name.full_name)
 end
 
-500.times do
+0.times do
   tag = Tag.find(id: rand(100))
   product = Product.find(id: rand(100))
   if tag && product

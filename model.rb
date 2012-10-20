@@ -7,16 +7,20 @@ Sequel::Model.plugin(:schema)
 DB = Sequel.mysql2('sandbox', user: 'root', password: '1234')
 
 class Hero < Sequel::Model
+  unrestrict_primary_key
   unless table_exists?
     set_schema do
-      primary_key :id
-      integer :power
-      integer :dex
-      integer :intelligence
-      timestamp :create_date
+      Integer :id, auto_increment: true, null: false
+      Integer :hero_type, null: false
+      primary_key [:id, :hero_type]
+      unique [:id, :hero_type]
+      Integer :power, null: false
+      Integer :dex, index: true, null: false
+      Integer :intelligence
+      boolean :paradin, null: false
+      Time :create_date
     end
     create_table
-    DB.add_index :heros, :dex
   end
 end
 
@@ -28,8 +32,7 @@ class Follower < Sequel::Model
       text :type
       text :name
       timestamp :create_date
-      foreign_key :hero_id, :table => :heros
-      index :hero_id
+      int :hero_id
     end
     create_table
   end
