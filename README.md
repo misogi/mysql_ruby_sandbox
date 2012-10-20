@@ -20,3 +20,12 @@ mysql_ruby_sandbox
 disable query cache.
 
     SET GLOBAL query_cache_size = 0;
+
+
+### Sequel cheat sheet
+
+want to display SQL log 
+
+```ruby
+DB.logger = Logger.new($stdout)
+```
