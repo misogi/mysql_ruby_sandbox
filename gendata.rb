@@ -1,14 +1,15 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'model'
 require 'forgery'
+DB.logger = Logger.new($stdout)
 
-20000.times do
-  Hero.create(power: rand(20000000), dex: rand(2000000), intelligence: rand(2000000), type: rand(3))
+300.times do
+  Hero.create(power: rand(20000000), dex: rand(2000000), intelligence: rand(2000000), hero_type: rand(3))
 end
 
 types = ['a', 'b', 'c']
 
-0.times do
+300.times do
   id = rand(10)
   hero = Hero.find(id: id)
   follower = Follower.create(create_date: Time.now, type: types[rand(types.length)])

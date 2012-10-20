@@ -44,7 +44,7 @@ ALTER TABLE heros PARTITION BY LIST(hero_type)(
 
 パーティションの分類に使うキーはかならず主キーに入れる必要がある
 
-auto_increment を使いたかったら必ず主キーにする必要がある
+auto_increment を使いたかったら必ず主キーにする必要がある。
 
 主キーは create などのときに明示的に指定できない。 unrestrict_primary_key で警告を消せる。ただし、これをやると create(id: 3) とか明示的に指定できちゃうので注意
 

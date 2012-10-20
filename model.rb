@@ -10,7 +10,7 @@ class Hero < Sequel::Model
   unrestrict_primary_key
   unless table_exists?
     set_schema do
-      Integer :id, auto_increment: true, null: false
+      Integer :id, auto_increment: true
       Integer :hero_type, null: false
       primary_key [:id, :hero_type]
       unique [:id, :hero_type]
@@ -23,7 +23,6 @@ class Hero < Sequel::Model
     create_table
   end
 end
-
 
 class Follower < Sequel::Model
   unless table_exists?
